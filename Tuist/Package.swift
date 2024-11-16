@@ -13,11 +13,13 @@ import PackageDescription
 #endif
 
 let package = Package(
-    name: "EntreLinhasIOS",
+    name: "PackageName",
     dependencies: [
-        .package(
-            url: "https://github.com/supabase/supabase-swift.git",
-            from: "2.0.0"
-        )
-    ]
+        .package(url: "https://github.com/supabase/supabase-swift.git", from: "2.0.0")
+    ],
+    targets: [
+        .target(
+            name: "EntreLinhasIOS",
+            dependencies: ["Supabase"]
+        )]
 )

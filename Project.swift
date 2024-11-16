@@ -28,7 +28,7 @@ let project = Project(
             infoPlist: .default,
             sources: ["EntreLinhasIOS/Tests/**"],
             resources: [],
-            dependencies: [.target(name: "EntreLinhasIOS")]
+            dependencies: []
         ),
     ]
 )
