@@ -13,7 +13,7 @@ struct MainView: View {
     var body: some View {
         TabView(selection: $selection) {
             Tab(
-                "Home",
+                EntreLinhasIOSStrings.mainViewButtonHomeTitle,
                 systemImage: "house.fill",
                 value: 0
             ) {
@@ -21,7 +21,7 @@ struct MainView: View {
             }
             
             Tab(
-                "Services",
+                EntreLinhasIOSStrings.mainViewButtonServicesTitle,
                 systemImage: "briefcase.fill",
                 value: 1
             ) {
@@ -29,7 +29,7 @@ struct MainView: View {
             }
                     
             Tab(
-                "Activities",
+                EntreLinhasIOSStrings.mainViewButtonActivitiesTitle,
                 systemImage: "app.fill",
                 value: 2
             ) {
@@ -37,7 +37,7 @@ struct MainView: View {
             }
             
             Tab(
-                "Account",
+                EntreLinhasIOSStrings.mainViewButtonAccountTitle,
                 systemImage: "person.fill",
                 value: 3
             ) {

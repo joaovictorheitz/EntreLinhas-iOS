@@ -10,6 +10,13 @@
 
 "AppTitle" = "Entre~Linhas";
 
+// MARK: - MainView Tab Bar
+
+"MainViewButtonHomeTitle" = "Home";
+"MainViewButtonServicesTitle" = "Serviços";
+"MainViewButtonActivitiesTitle" = "Atividades";
+"MainViewButtonAccountTitle" = "Conta";
+
 // MARK: - Login
 
 "LoginEmailPlaceHolder" = "E-mail";
