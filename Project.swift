@@ -2,6 +2,9 @@ import ProjectDescription
 
 let project = Project(
     name: "EntreLinhasIOS",
+    options: Project
+        .Options
+        .options(developmentRegion: "pt-BR"),
     targets: [
         .target(
             name: "EntreLinhasIOS",
