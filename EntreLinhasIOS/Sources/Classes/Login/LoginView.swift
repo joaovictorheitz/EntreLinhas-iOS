@@ -12,16 +12,18 @@ public struct LoginView: View {
     
     public var body: some View {
         VStack (spacing: 0) {
-            Text("Entre-Linhas")
+            Text(EntreLinhasIOSStrings.appTitle)
                 .font(.system(size: 24))
                 .padding(24)
             
             VStack (spacing: 0) {
-                TextField("E-mail", text: $viewModel.email)
+                TextField(EntreLinhasIOSStrings
+                    .loginEmailPlaceHolder, text: $viewModel.email)
                     .textFieldStyle(.roundedBorder)
                     .padding(8)
                                         
-                SecureField("Senha", text: $viewModel.password)
+                SecureField(EntreLinhasIOSStrings
+                    .loginPasswordPlaceHolder, text: $viewModel.password)
                     .textFieldStyle(.roundedBorder)
                     .padding(8)
             }
@@ -31,7 +33,7 @@ public struct LoginView: View {
                 Button(
                     action: {},
                     label: {
-                        Text("Acessar")
+                        Text(EntreLinhasIOSStrings.loginButtonTitle)
                             .font(.system(size: 16, weight: .bold, design: .default))
                             .frame(maxWidth: .infinity, maxHeight: 42)
                             .foregroundColor(Color.white)

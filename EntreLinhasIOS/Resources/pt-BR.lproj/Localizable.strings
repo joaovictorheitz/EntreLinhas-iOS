@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  EntreLinhasIOS
+
+  Created by João Victor de Souza Guedes on 16/11/24.
+  
+*/
+
+// MARK: - Common
+
+"AppTitle" = "Entre~Linhas";
+
+// MARK: - Login
+
+"LoginEmailPlaceHolder" = "E-mail";
+"LoginPasswordPlaceHolder" = "Senha";
+"LoginButtonTitle" = "Acessar";
