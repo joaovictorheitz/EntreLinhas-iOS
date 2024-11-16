@@ -15,7 +15,7 @@ let project = Project(
             ),
             sources: ["EntreLinhasIOS/Sources/**"],
             resources: ["EntreLinhasIOS/Resources/**"],
-            dependencies: []
+            dependencies: [.package(product: "supabase-swift")]
         ),
         .target(
             name: "EntreLinhasIOSTests",
