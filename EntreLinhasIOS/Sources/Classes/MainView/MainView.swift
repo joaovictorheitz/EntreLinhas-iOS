@@ -44,7 +44,23 @@ struct MainView: View {
                 AccountView()
             }
         }
-        .accentColor(.blue)
+        .tint(.white)
+        .onAppear() {
+            setupTabBarAppearance()
+        }
+    }
+    
+    private func setupTabBarAppearance() {
+        setTabBarBackground()
+        setTabBarUnselectedItemTintColor()
+    }
+    
+    private func setTabBarBackground() {
+        UITabBar.appearance().backgroundColor = EntreLinhasIOSAsset.Assets.caribbeanCurrent.color
+    }
+    
+    private func setTabBarUnselectedItemTintColor() {
+        UITabBar.appearance().unselectedItemTintColor = EntreLinhasIOSAsset.Assets.ashGray.color
     }
 }
 
