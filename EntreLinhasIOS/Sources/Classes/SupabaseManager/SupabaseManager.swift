@@ -18,6 +18,8 @@ class SupabaseManager {
     
     var supabaseClient: SupabaseClient?
     
+    // MARK: - Init
+    
     public init() {
         initSupabaseClient()
     }
