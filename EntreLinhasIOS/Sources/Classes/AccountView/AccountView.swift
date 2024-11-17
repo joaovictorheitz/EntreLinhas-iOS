@@ -15,6 +15,15 @@ struct AccountView: View {
     var body: some View {
         Text("Account View")
         
+        if let userRole = viewModel.userRole {            
+            switch userRole {
+            case .consumer:
+                Text("Esse perfil é de consumidor!")
+            case .seamstress:
+                Text("Esse perfil é de costureiro(a)!")
+            }
+        }
+        
         Button(
             action: viewModel.logoutAction,
             label: {

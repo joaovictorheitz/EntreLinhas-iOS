@@ -14,7 +14,11 @@ class SupabaseManager {
     
     public static var shared = SupabaseManager()
     
-    var user: User?
+    var user: User? {
+        get async throws {
+            return await getUser()
+        }
+    }
 
     // MARK: - Proprieties
     
@@ -34,7 +38,6 @@ class SupabaseManager {
         guard let token = try await supabaseClient?.auth.session.accessToken else { return }
         
         saveJWT(token: token)
-        updateUser()
     }
     
     public func signOut() {
@@ -88,12 +91,6 @@ class SupabaseManager {
             return user
         } catch {
             return nil
-        }
-    }
-    
-    private func updateUser() {
-        Task {
-            user = await getUser()
         }
     }
     
