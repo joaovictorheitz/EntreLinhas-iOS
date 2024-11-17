@@ -1,22 +1,16 @@
-//
-//  Coordinator.swift
-//  EntreLinhasIOS
-//
-//  Created by João Victor de Souza Guedes on 17/11/24.
-//
+    //
+    //  Coordinator.swift
+    //  EntreLinhasIOS
+    //
+    //  Created by João Victor de Souza Guedes on 17/11/24.
+    //
 
-import Foundation
-import SwiftUI
+    import Foundation
+    import SwiftUI
 
 class Coordinator: ObservableObject {
     @Published var path: NavigationPath = NavigationPath()
     @Published var fullScreenCover: FullScreenCover?
-    
-    init() { }
-    
-    func push(page: AppPages) {
-        path.append(page)
-    }
     
     @ViewBuilder
     func build(page: AppPages) -> some View {
@@ -39,4 +33,12 @@ class Coordinator: ObservableObject {
 //        case .signup: SignupView()
 //        }
 ////    }
+    
+    func push(page: AppPages) {
+        path.append(page)
+    }
+    
+    func popToRoot() {
+        path.removeLast(path.count)
+    }
 }

@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct AccountView: View {
+    @EnvironmentObject var coordinator: Coordinator
+    
+    @StateObject var viewModel: AccountViewModel = AccountViewModel()
+    
     var body: some View {
         Text("Account View")
         
         Button(
-            action: {
-                let supabaseManager = SupabaseManager.shared
-                
-                supabaseManager.signOut()
-            },
+            action: viewModel.logoutAction,
             label: {
                 Text(EntreLinhasIOSStrings.signOutButtonTitle)
                     .font(.system(size: 16, weight: .bold, design: .default))
@@ -27,6 +27,9 @@ struct AccountView: View {
             }
         )
         .padding(8)
+        .onAppear {
+            viewModel.onAppear(coordinator: coordinator)
+        }
     }
 }
 
