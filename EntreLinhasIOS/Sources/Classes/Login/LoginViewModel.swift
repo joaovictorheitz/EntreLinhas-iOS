@@ -23,10 +23,20 @@ public class LoginViewModel: ObservableObject {
         initSupabaseClient()
     }
     
+    func loginAction() {
+        Task {
+            do {
+                try await supabaseClient?.auth.signIn(email: email, password: password)
+            } catch {
+                print("\(error.localizedDescription)")
+            }
+        }
+    }
+    
     private func initSupabaseClient() {
         guard let supabaseURL = URL(string: APPConstants.Supabase.projectURL), let apiKey = getAPIKey() else { return }
         
-        supabaseClient = SupabaseClient(supabaseURL: supabaseURL, supabaseKey: apiKey)        
+        supabaseClient = SupabaseClient(supabaseURL: supabaseURL, supabaseKey: apiKey)
     }
     
     private func getAPIKey() -> String? {

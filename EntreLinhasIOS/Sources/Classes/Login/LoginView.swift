@@ -31,7 +31,7 @@ public struct LoginView: View {
             
             HStack {
                 Button(
-                    action: {},
+                    action: viewModel.loginAction,
                     label: {
                         Text(EntreLinhasIOSStrings.loginButtonTitle)
                             .font(.system(size: 16, weight: .bold, design: .default))
