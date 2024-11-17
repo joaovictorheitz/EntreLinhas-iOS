@@ -9,13 +9,18 @@ import Foundation
 import Supabase
 
 public class LoginViewModel: ObservableObject {
+    
+    // MARK: - Credentials
+    
     @Published var email: String
     @Published var password: String
     
-    // MARK: - Error Message
+    // MARK: - Error Message Vars
     
     @Published var showErrorMessage = false
     var errorMessage: String?
+    
+    // MARK: - Supabase
     
     var supabaseClient: SupabaseClient?
     
@@ -24,9 +29,13 @@ public class LoginViewModel: ObservableObject {
         self.password = ""
     }
     
+    // MARK: - On Appear
+    
     func onAppear() {
         initSupabaseClient()
     }
+    
+    // MARK: - Login Action
     
     func loginAction() {
         Task {
@@ -39,11 +48,15 @@ public class LoginViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Supabase
+    
     private func initSupabaseClient() {
         guard let supabaseURL = URL(string: APPConstants.Supabase.projectURL), let apiKey = getAPIKey() else { return }
         
         supabaseClient = SupabaseClient(supabaseURL: supabaseURL, supabaseKey: apiKey)
     }
+    
+    // MARK: - API Key
     
     private func getAPIKey() -> String? {
         guard let path = Bundle.main.path(forResource: "Config", ofType: "plist") else {
@@ -60,6 +73,8 @@ public class LoginViewModel: ObservableObject {
         
         return APIKey
     }
+    
+    // MARK: - Error Message
     
     private func showErrorMessage(_ value: Bool) {
         DispatchQueue.main.async {
