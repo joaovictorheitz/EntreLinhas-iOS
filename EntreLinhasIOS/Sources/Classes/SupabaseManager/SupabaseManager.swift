@@ -13,10 +13,12 @@ class SupabaseManager {
     // MARK: - Shared
     
     public static var shared = SupabaseManager()
+    
+    var user: User?
 
     // MARK: - Proprieties
     
-    var supabaseClient: SupabaseClient?
+    private var supabaseClient: SupabaseClient?
     
     // MARK: - Init
     
@@ -26,21 +28,13 @@ class SupabaseManager {
     
     // MARK: - Public Functions
     
-    public func isLoggedIn() async -> Bool {
-        do {
-            return try await supabaseClient?.auth.session.accessToken != nil
-        } catch {
-            print("\(error)")
-            return false
-        }
-    }
-    
     public func login(email: String, password: String) async throws {
         try await supabaseClient?.auth.signIn(email: email, password: password)
         
         guard let token = try await supabaseClient?.auth.session.accessToken else { return }
         
         saveJWT(token: token)
+        updateUser()
     }
     
     public func signOut() {
@@ -84,6 +78,22 @@ class SupabaseManager {
             guard let token = try await supabaseClient?.auth.session.accessToken else { return }
             
             saveJWT(token: token)
+        }
+    }
+    
+    private func getUser() async -> User? {
+        do {
+            let user = try await supabaseClient?.auth.user()
+            
+            return user
+        } catch {
+            return nil
+        }
+    }
+    
+    private func updateUser() {
+        Task {
+            user = await getUser()
         }
     }
     
