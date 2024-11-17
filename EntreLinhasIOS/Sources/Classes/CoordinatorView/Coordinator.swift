@@ -35,10 +35,14 @@ class Coordinator: ObservableObject {
 ////    }
     
     func push(page: AppPages) {
-        path.append(page)
+        DispatchQueue.main.async {
+            self.path.append(page)
+        }
     }
     
     func popToRoot() {
-        path.removeLast(path.count)
+        DispatchQueue.main.async { [self] in
+            path.removeLast(path.count)
+        }
     }
 }
