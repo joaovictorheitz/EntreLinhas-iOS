@@ -45,6 +45,9 @@ public struct LoginView: View {
             }
             .padding(8)
         }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
 }
 
