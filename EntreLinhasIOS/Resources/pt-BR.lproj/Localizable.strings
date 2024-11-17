@@ -25,3 +25,7 @@
 
 "InvalidCredentialsErrorMessage" = "Usuário ou senha inválidos.";
 "UnknowedErrorMessage" = "Algo deu errado, tente novamente.";
+
+// MARK: - Account View
+
+"SignOutButtonTitle" = "Sair";

@@ -47,11 +47,15 @@ class SupabaseManager {
         Task {
             try await supabaseClient?.auth.signOut()
         }
+        
+        deleteJWT()
     }
     
     public func retrieveSession(jwt: String) throws {
         Task {
             try await supabaseClient?.auth.refreshSession(refreshToken: jwt)
+            
+            refreshSession()
         }
     }
     
@@ -61,6 +65,22 @@ class SupabaseManager {
         guard let supabaseURL = URL(string: APPConstants.Supabase.projectURL), let apiKey = getAPIKey() else { return }
         
         supabaseClient = SupabaseClient(supabaseURL: supabaseURL, supabaseKey: apiKey)
+    }
+    
+    private func refreshSession() {
+        Task {
+            try await supabaseClient?.auth.refreshSession()
+            
+            storeJWT()
+        }
+    }
+    
+    private func storeJWT() {
+        Task {
+            guard let token = try await supabaseClient?.auth.session.accessToken else { return }
+            
+            saveJWT(token: token)
+        }
     }
     
     private func getAPIKey() -> String? {
@@ -113,5 +133,20 @@ class SupabaseManager {
             }
         }
         return nil
+    }
+    
+    private func deleteJWT() {
+        let query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: "userJWT"
+        ]
+        
+        let status = SecItemDelete(query as CFDictionary)
+        
+        if status == errSecSuccess {
+            print("JWT removed successfully!")
+        } else {
+            print("Error removing JWT: \(status)")
+        }
     }
 }
