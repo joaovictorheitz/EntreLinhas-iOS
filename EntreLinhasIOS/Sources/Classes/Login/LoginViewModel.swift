@@ -57,7 +57,7 @@ public class LoginViewModel: ObservableObject {
         }
     }
     
-    func setupCoordinator(_ coordinator: Coordinator) {
+    private func setupCoordinator(_ coordinator: Coordinator) {
         self.coordinator = coordinator
     }
     

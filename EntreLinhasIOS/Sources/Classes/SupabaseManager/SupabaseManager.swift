@@ -51,6 +51,10 @@ class SupabaseManager {
         deleteJWT()
     }
     
+    public func signUp(email: String, password: String, role: UserRole = .consumer) async throws {
+        try await supabaseClient?.auth.signUp(email: email, password: password, data: ["role" : .string(role.rawValue)])
+    }
+    
     public func retrieveSession(jwt: String) throws {
         Task {
             try await supabaseClient?.auth.refreshSession(refreshToken: jwt)
