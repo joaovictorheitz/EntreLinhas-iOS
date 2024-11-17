@@ -33,7 +33,7 @@ public class LoginViewModel: ObservableObject {
             do {
                 try await supabaseClient?.auth.signIn(email: email, password: password)
             } catch {
-                errorMessage = error.localizedDescription
+                setErrorMessage(error)
                 showErrorMessage(true)
             }
         }
