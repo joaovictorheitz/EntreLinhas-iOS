@@ -7,6 +7,7 @@
 
 import Foundation
 import Supabase
+import SwiftUI
 
 public class LoginViewModel: ObservableObject {
     
@@ -22,7 +23,9 @@ public class LoginViewModel: ObservableObject {
     
     // MARK: - Supabase
     
-    var supabaseClient: SupabaseClient?
+    var supabaseManager: SupabaseManager = SupabaseManager.shared
+    
+    // MARK: - Init
     
     public init() {
         self.email = ""
@@ -32,7 +35,7 @@ public class LoginViewModel: ObservableObject {
     // MARK: - On Appear
     
     func onAppear() {
-        initSupabaseClient()
+        
     }
     
     // MARK: - Login Action
@@ -40,20 +43,12 @@ public class LoginViewModel: ObservableObject {
     func loginAction() {
         Task {
             do {
-                try await supabaseClient?.auth.signIn(email: email, password: password)
+                try await supabaseManager.login(email: email, password: password)
             } catch {
                 setErrorMessage(error)
                 showErrorMessage(true)
             }
         }
-    }
-    
-    // MARK: - Supabase
-    
-    private func initSupabaseClient() {
-        guard let supabaseURL = URL(string: APPConstants.Supabase.projectURL), let apiKey = getAPIKey() else { return }
-        
-        supabaseClient = SupabaseClient(supabaseURL: supabaseURL, supabaseKey: apiKey)
     }
     
     // MARK: - API Key
