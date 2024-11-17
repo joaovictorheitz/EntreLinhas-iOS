@@ -16,7 +16,7 @@ let project = Project(
                     "UILaunchStoryboardName": "LaunchScreen.storyboard",
                 ]
             ),
-            sources: ["EntreLinhasIOS/Sources/**"],
+            sources: ["EntreLinhasIOS/Sources/**", "EntreLinhasIOS/Config/**"],
             resources: ["EntreLinhasIOS/Resources/**"],
             dependencies: [.external(name: "Supabase")]
         ),
