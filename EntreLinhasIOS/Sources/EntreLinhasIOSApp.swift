@@ -20,12 +20,7 @@ struct EntreLinhasIOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            switch self.screen {
-            case .login:
-                LoginView()
-            default:
-                MainView()
-            }
+            CoordinatorView()
         }
     }
 }

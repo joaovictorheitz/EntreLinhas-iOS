@@ -8,6 +8,8 @@
 import SwiftUI
 
 public struct LoginView: View {
+    @EnvironmentObject var coordinator: Coordinator
+    
     @StateObject var viewModel = LoginViewModel()
     
     public var body: some View {
@@ -53,7 +55,7 @@ public struct LoginView: View {
             .padding(8)
         }
         .onAppear {
-            viewModel.onAppear()
+            viewModel.onAppear(coordinator: coordinator)
         }
     }
 }

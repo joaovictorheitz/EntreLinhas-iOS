@@ -7,7 +7,6 @@
 
 import Foundation
 import Supabase
-import SwiftUI
 
 public class LoginViewModel: ObservableObject {
     
@@ -21,9 +20,13 @@ public class LoginViewModel: ObservableObject {
     @Published var showErrorMessage = false
     var errorMessage: String?
     
+    // MARK: - Coordinator
+    
+    private var coordinator: Coordinator?
+    
     // MARK: - Supabase
     
-    var supabaseManager: SupabaseManager = SupabaseManager.shared
+    private var supabaseManager: SupabaseManager = SupabaseManager.shared
     
     // MARK: - Init
     
@@ -34,8 +37,9 @@ public class LoginViewModel: ObservableObject {
     
     // MARK: - On Appear
     
-    func onAppear() {
-        
+    func onAppear(coordinator: Coordinator) {
+        setupCoordinator(coordinator)
+        checkSession()
     }
     
     // MARK: - Login Action
@@ -44,11 +48,17 @@ public class LoginViewModel: ObservableObject {
         Task {
             do {
                 try await supabaseManager.login(email: email, password: password)
+                
+                coordinator?.push(page: .main)
             } catch {
                 setErrorMessage(error)
                 showErrorMessage(true)
             }
         }
+    }
+    
+    func setupCoordinator(_ coordinator: Coordinator) {
+        self.coordinator = coordinator
     }
     
     // MARK: - API Key
@@ -86,4 +96,18 @@ public class LoginViewModel: ObservableObject {
             errorMessage = error.localizedDescription
         }
     }
+        
+    private func checkSession() {
+        guard let jwt = supabaseManager.loadJWT() else { return }
+        
+        do {
+            try supabaseManager.retrieveSession(jwt: jwt)
+            
+            coordinator?.push(page: .main)
+        } catch {
+            print("Session not retrievied")
+        }
+    }
+    
+    private func 
 }

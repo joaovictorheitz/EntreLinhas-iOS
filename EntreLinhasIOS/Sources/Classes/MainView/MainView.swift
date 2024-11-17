@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var selection = 0
+    @EnvironmentObject private var coordinator: Coordinator
+    
+    @StateObject private var viewModel: MainViewModel = MainViewModel()
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $viewModel.tabSelection) {
             Tab(
                 EntreLinhasIOSStrings.mainViewButtonHomeTitle,
                 systemImage: "house.fill",
@@ -44,8 +46,11 @@ struct MainView: View {
                 AccountView()
             }
         }
+        .navigationBarBackButtonHidden(true)
         .tint(.white)
-        .onAppear() {
+        .onAppear {
+            viewModel.onAppear(coordinator: coordinator)
+            
             setupTabBarAppearance()
         }
     }
