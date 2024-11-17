@@ -108,6 +108,4 @@ public class LoginViewModel: ObservableObject {
             print("Session not retrievied")
         }
     }
-    
-    private func 
 }
