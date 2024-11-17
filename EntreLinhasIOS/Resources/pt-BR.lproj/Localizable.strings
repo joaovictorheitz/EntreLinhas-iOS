@@ -22,3 +22,6 @@
 "LoginEmailPlaceHolder" = "E-mail";
 "LoginPasswordPlaceHolder" = "Senha";
 "LoginButtonTitle" = "Acessar";
+
+"InvalidCredentialsErrorMessage" = "Usuário ou senha inválidos.";
+"UnknowedErrorMessage" = "Algo deu errado, tente novamente.";

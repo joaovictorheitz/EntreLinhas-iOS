@@ -12,6 +12,11 @@ public class LoginViewModel: ObservableObject {
     @Published var email: String
     @Published var password: String
     
+    // MARK: - Error Message
+    
+    @Published var showErrorMessage = false
+    var errorMessage: String?
+    
     var supabaseClient: SupabaseClient?
     
     public init() {
@@ -28,7 +33,8 @@ public class LoginViewModel: ObservableObject {
             do {
                 try await supabaseClient?.auth.signIn(email: email, password: password)
             } catch {
-                print("\(error.localizedDescription)")
+                errorMessage = error.localizedDescription
+                showErrorMessage(true)
             }
         }
     }
@@ -53,5 +59,21 @@ public class LoginViewModel: ObservableObject {
         let APIKey = plist["API_KEY"] as? String
         
         return APIKey
+    }
+    
+    private func showErrorMessage(_ value: Bool) {
+        DispatchQueue.main.async {
+            self.showErrorMessage = value
+        }
+    }
+    
+    private func setErrorMessage(_ error: Error) {
+        switch error.localizedDescription {
+        case "Invalid login credentials":
+            errorMessage = EntreLinhasIOSStrings.invalidCredentialsErrorMessage
+        default:
+//            errorMessage = EntreLinhasIOSStrings.unknowedErrorMessage
+            errorMessage = error.localizedDescription
+        }
     }
 }
