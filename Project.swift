@@ -17,7 +17,7 @@ let project = Project(
                 ]
             ),
             sources: ["EntreLinhasIOS/Sources/**", "EntreLinhasIOS/Config/**"],
-            resources: ["EntreLinhasIOS/Resources/**"],
+            resources: ["EntreLinhasIOS/Resources/**", "EntreLinhasIOS/Config/Config.plist"],
             dependencies: [.external(name: "Supabase")]
         ),
         .target(
