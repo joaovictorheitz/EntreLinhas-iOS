@@ -31,3 +31,11 @@
 // MARK: - Account View
 
 "SignOutButtonTitle" = "Sair";
+
+// MARK: - Sign Up View
+
+"SignUpEmailPlaceHolder" = "Insira seu e-mail";
+"SignUpPasswordPlaceHolder1" = "Insira sua senha";
+"SignUpPasswordPlaceHolder2" = "Insira novamente sua senha";
+"SignUpCheckBoxUserSeamstress" = "Perfil costureira";
+"SignUpButtonTitle" = "Criar";

@@ -24,7 +24,8 @@ public struct LoginView: View {
                                 
                 VStack (spacing: 0) {
                     EGTextField(text: $viewModel.email)
-                        .setBackgroundColor(Color(red: 163 / 255, green: 187 / 255, blue: 173 / 255))
+                        .setBackgroundColor(Color(red: 163 / 255, green: 187 / 255, blue: 173 / 255, opacity: 0.4))
+                        .setBorderWidth(0.0)
                         .setPlaceHolderText(EntreLinhasIOSStrings.loginEmailPlaceHolder)
                         .setPlaceHolderTextColor(Color.white)
                         .setCornerRadius(20.0)
@@ -36,7 +37,8 @@ public struct LoginView: View {
                         .setPlaceHolderText(EntreLinhasIOSStrings.loginPasswordPlaceHolder)
                         .setPlaceHolderTextColor(Color.white)
                         .setCornerRadius(20.0)
-                        .setBackgroundColor(Color(red: 163 / 255, green: 187 / 255, blue: 173 / 255))
+                        .setBackgroundColor(Color(red: 163 / 255, green: 187 / 255, blue: 173 / 255, opacity: 0.4))
+                        .setBorderWidth(0.0)
                         .setSecureText(true)
                         .setTextColor(.white)
                         .setTextFieldHeight(32)
