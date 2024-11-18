@@ -32,7 +32,7 @@ struct SignUpView: View {
                         .setTextColor(.white)
                         .setTextFieldHeight(32)
                     
-                    EGTextField(text: $viewModel.password)
+                    EGTextField(text: $viewModel.password1)
                         .setPlaceHolderText(EntreLinhasIOSStrings.signUpPasswordPlaceHolder1)
                         .setPlaceHolderTextColor(Color.white)
                         .setCornerRadius(20.0)
@@ -42,7 +42,7 @@ struct SignUpView: View {
                         .setTextColor(.white)
                         .setTextFieldHeight(32)
                     
-                    EGTextField(text: $viewModel.password)
+                    EGTextField(text: $viewModel.password2)
                         .setPlaceHolderText(EntreLinhasIOSStrings.signUpPasswordPlaceHolder2)
                         .setPlaceHolderTextColor(Color.white)
                         .setCornerRadius(20.0)
@@ -70,7 +70,7 @@ struct SignUpView: View {
                     .padding(12)
                 }
                 
-                Toggle(isOn: $viewModel.userSeamstress, label: {
+                Toggle(isOn: $viewModel.checkBoxSeamtress, label: {
                     Label(title: {
                         Text(EntreLinhasIOSStrings.signUpCheckBoxUserSeamstress)
                             .tint(.white)

@@ -57,6 +57,10 @@ public class LoginViewModel: ObservableObject {
         }
     }
     
+    func routeToSignUpPage() {
+        coordinator?.push(page: .signUp)
+    }
+    
     private func setupCoordinator(_ coordinator: Coordinator) {
         self.coordinator = coordinator
     }

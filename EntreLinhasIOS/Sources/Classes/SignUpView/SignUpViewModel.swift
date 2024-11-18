@@ -11,14 +11,23 @@ class SignUpViewModel: ObservableObject {
     
     // MARK: - Coordinator
     
-    var coordinator: Coordinator?
+    private var coordinator: Coordinator?
+    
+    // MARK: - Supabase Manager
+    
+    private var supabaseManager = SupabaseManager.shared
     
     // MARK: - Proprieties
     
     @Published var email = ""
-    @Published var password = ""
+    @Published var password1 = ""
+    @Published var password2 = ""
     
-    @Published var userSeamstress = false
+    @Published var checkBoxSeamtress = false { didSet {
+        userType = checkBoxSeamtress ? .seamstress : .consumer
+    }}
+    
+    private var userType: UserRole = .consumer
     
     // MARK: - On Appear
     
@@ -27,6 +36,14 @@ class SignUpViewModel: ObservableObject {
     }
     
     func signUpAction() {
-        
+        Task {
+            try await supabaseManager.signUp(email: email, password: password1, role: userType)
+            
+            popToLogin()
+        }
+    }
+    
+    private func popToLogin() {
+        coordinator?.popToRoot()
     }
 }

@@ -10,4 +10,5 @@ import Foundation
 enum AppPages: Hashable {
     case main
     case login
+    case signUp
 }

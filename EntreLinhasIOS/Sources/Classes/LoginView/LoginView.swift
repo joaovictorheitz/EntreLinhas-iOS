@@ -63,11 +63,13 @@ public struct LoginView: View {
                         )
                         .padding(12)
                     }
-                    
-                    Text(EntreLinhasIOSStrings.loginCreateAccountLabel)
-                        .foregroundStyle(Color.white)
-                        .font(.system(size: 16, weight: .bold, design: .default))
-                        .padding(5)
+                                                            
+                    Button(action: viewModel.routeToSignUpPage, label: {
+                        Text(EntreLinhasIOSStrings.loginCreateAccountLabel)
+                            .foregroundStyle(Color.white)
+                            .font(.system(size: 16, weight: .bold, design: .default))
+                            .padding(5)
+                    })
                     
                     Text(EntreLinhasIOSStrings.loginRecoverPasswordLabel)
                         .foregroundStyle(Color.white)
