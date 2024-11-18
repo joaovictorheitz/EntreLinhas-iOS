@@ -22,6 +22,8 @@
 "LoginEmailPlaceHolder" = "E-mail";
 "LoginPasswordPlaceHolder" = "Senha";
 "LoginButtonTitle" = "Acessar";
+"LoginCreateAccountLabel" = "Criar conta";
+"LoginRecoverPasswordLabel"= "Recuperar senha";
 
 "InvalidCredentialsErrorMessage" = "Usuário ou senha inválidos.";
 "UnknowedErrorMessage" = "Algo deu errado, tente novamente.";

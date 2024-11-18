@@ -44,6 +44,15 @@
         "revision" : "06dc63c6d8da54ee11ceb268cde1fa68161afc96",
         "version" : "3.9.1"
       }
+    },
+    {
+      "identity" : "swiftui-custom-textfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/esatgozcu/SwiftUI-Custom-TextField",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8c8a0da7d3cc1003809f63d24c97d5edd8e5513f"
+      }
     }
   ],
   "version" : 2

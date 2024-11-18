@@ -15,7 +15,8 @@ import PackageDescription
 let package = Package(
     name: "PackageName",
     dependencies: [
-        .package(url: "https://github.com/supabase/supabase-swift.git", from: "2.0.0")
+        .package(url: "https://github.com/supabase/supabase-swift.git", from: "2.0.0"),
+        .package(url: "https://github.com/esatgozcu/SwiftUI-Custom-TextField", branch: "main")
     ],
     targets: [
         .target(
