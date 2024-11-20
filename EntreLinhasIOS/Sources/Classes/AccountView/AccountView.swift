@@ -44,4 +44,5 @@ struct AccountView: View {
 
 #Preview {
     AccountView()
+        .environment(Coordinator())
 }

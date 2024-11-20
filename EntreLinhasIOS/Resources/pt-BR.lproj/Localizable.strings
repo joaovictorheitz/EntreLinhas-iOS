@@ -39,3 +39,16 @@
 "SignUpPasswordPlaceHolder2" = "Insira novamente sua senha";
 "SignUpCheckBoxUserSeamstress" = "Perfil costureira";
 "SignUpButtonTitle" = "Criar";
+
+// MARK: - Services View
+
+"ServicesHeaderTitle" = "Serviços";
+"ServiceChooseServiceLabel" = "Selecione o serviço desejado:";
+"ServiceScheduleLabel" = "Agendar serviço";
+
+"ServiceMinorFixesTitle" = "Pequenos ajustes";
+"ServiceMinorFixesDescription" = "Realizamos pequenos ajustes nas suas roupas";
+"ServiceNewPiecesTitle" = "Novas peças";
+"ServiceNewPiecesDescription" = "Criamos peças sob medida";
+"ServiceRestorationTitle" = "Restauração";
+"ServiceRestorationDescription" = "Restauramos sua peça favorita";
