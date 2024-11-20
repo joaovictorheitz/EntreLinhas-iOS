@@ -50,17 +50,7 @@ public struct LoginView: View {
                 
                 VStack {
                     HStack {
-                        Button(
-                            action: viewModel.loginAction,
-                            label: {
-                                Text(EntreLinhasIOSStrings.loginButtonTitle)
-                                    .font(.system(size: 16, weight: .bold, design: .default))
-                                    .frame(maxWidth: .infinity, maxHeight: 42)
-                                    .foregroundColor(Color.white)
-                                    .background(Color.black)
-                                    .cornerRadius(15)
-                            }
-                        )
+                        EntreLinhasButton(action: viewModel.loginAction, title: EntreLinhasIOSStrings.loginButtonTitle)
                         .padding(12)
                     }
                                                             

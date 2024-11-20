@@ -56,17 +56,7 @@ struct SignUpView: View {
                 .padding(20)
                 
                 HStack {
-                    Button(
-                        action: viewModel.signUpAction,
-                        label: {
-                            Text(EntreLinhasIOSStrings.signUpButtonTitle)
-                                .font(.system(size: 16, weight: .bold, design: .default))
-                                .frame(maxWidth: .infinity, maxHeight: 42)
-                                .foregroundColor(Color.white)
-                                .background(Color.black)
-                                .cornerRadius(15)
-                        }
-                    )
+                    EntreLinhasButton(action: viewModel.signUpAction, title: EntreLinhasIOSStrings.signUpButtonTitle)
                     .padding(12)
                 }
                 
